@@ -1,0 +1,52 @@
+﻿<Window x:Class="gPearlAnalyzer.View.SaveData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:gPearlAnalyzer.View"
+        mc:Ignorable="d"
+        Title="SaveData" Height="300" Width="450">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border>
+            <StackPanel Margin="0,10,0,0">
+                <TextBox Width="420" Margin="0,5,0,5" BorderThickness="0" IsReadOnly="True"
+                         Background="LightGray"
+                         Text="{Binding ControlNum, Mode=OneWay}" HorizontalAlignment="Center"
+                         TextAlignment="Center"
+                         FontSize="20">
+                </TextBox>
+                <TextBox Width="420" Margin="0,5,0,5" BorderThickness="0" IsReadOnly="True"
+                         Background="LightGray"
+                         Text="{Binding Description, Mode=OneWay}" HorizontalAlignment="Center"
+                         TextAlignment="Center"
+                         FontSize="34">
+                </TextBox>
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,5" HorizontalAlignment="Center">
+                    <Label FontSize="14">L</Label>
+                    <TextBox Width="80" BorderThickness="0" IsReadOnly="True" Background="LightGray"
+                             Text="{Binding LValue, Mode=OneWay}" TextAlignment="Center" VerticalAlignment="Center"
+                             FontSize="14"/>
+                    <Label FontSize="14">C</Label>
+                    <TextBox Width="80" BorderThickness="0" IsReadOnly="True" Background="LightGray"
+                             Text="{Binding CValue, Mode=OneWay}" TextAlignment="Center"  VerticalAlignment="Center"
+                             FontSize="14"/>
+                    <Label FontSize="14">H</Label>
+                    <TextBox Width="80" BorderThickness="0" IsReadOnly="True" Background="LightGray"
+                             Text="{Binding HValue, Mode=OneWay}" TextAlignment="Center"  VerticalAlignment="Center"
+                             FontSize="14"/>
+                </StackPanel>
+                
+            </StackPanel>
+        </Border>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+            <Button Margin="0,0,4,0" Width="70" Command="{Binding CommandSave}" IsDefault="True"
+                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">Save</Button>
+            <Button Width="70" Command="{Binding CommandCancel}" IsCancel="True"
+                    CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}">Cancel</Button>
+        </StackPanel>
+    </Grid>
+</Window>
